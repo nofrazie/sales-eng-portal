@@ -9,6 +9,9 @@ gem 'coffee-rails', '4.2.1'
 gem 'jquery-rails', '4.1.1'
 gem 'turbolinks',   '5.0.0'
 gem 'jbuilder',     '2.4.1'
+gem 'bcrypt',      '3.1.11'
+gem 'mini_magick',  '4.5.1'
+gem 'carrierwave',  '0.11.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
