@@ -1,7 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "procore_logo_1c_r.png", alt: "procore logo" %>
+    <% end %>
     <% if logged_in? %>
-      <%= link_to "Sales Engineering", root_path, id: "logo", class: "navbar-brand" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home",     root_path %></li>
