@@ -17,3 +17,8 @@
 .navbar-brand {
   padding: 5px;
 }
+
+.checkbox input[type="checkbox"] {
+  position: static;
+  margin-left: 0;
+}
