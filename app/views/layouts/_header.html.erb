@@ -6,8 +6,9 @@
     <% if logged_in? %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home",     root_path %></li>
-          <li><%= link_to "Help",     help_path %></li>
+          <li><%= link_to "Home",         root_path %></li>
+          <li><%= link_to "Help",         help_path %></li>
+          <li><%= link_to "Integrations", integrations_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
             <ul class="dropdown-menu">

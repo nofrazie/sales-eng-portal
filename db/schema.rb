@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808052505) do
+ActiveRecord::Schema.define(version: 20160823025322) do
+
+  create_table "integration_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "integrations", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "built_by"
+    t.string   "status"
+    t.text     "summary"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "integration_type_id"
+    t.index ["integration_type_id"], name: "index_integrations_on_integration_type_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
