@@ -1,1 +1,4 @@
 <h1 class="page-header">SI Integraions</h1>
+<% @integrations.each do |i| %>
+  <%= i.id %>. <%= i.name %> | Built By <%= i.built_by %> | <%= link_to "Show", integration_path(i) %>
+<% end %>
