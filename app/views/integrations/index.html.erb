@@ -1,4 +1,6 @@
 <h1 class="page-header">SI Integraions</h1>
+<%= link_to "Create New Integration", new_integration_path, class: "btn btn-default" %>
+
 <% @integrations.each do |i| %>
-  <%= i.id %>. <%= i.name %> | Built By <%= i.built_by %> | <%= link_to "Show", integration_path(i) %>
+  <p><%= i.id %>. <%= i.name %> | Built By <%= i.built_by %> | <%= link_to "Show", integration_path(i) %></p>
 <% end %>
