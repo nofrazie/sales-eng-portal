@@ -1,0 +1,9 @@
+<h1>Integration Types</h1>
+
+<% @integration_types.each do |it| %>
+  <ul>
+    <li><%= it.name %></li>
+  </ul>
+<% end %>
+
+<%= link_to "Add New Integration Type", new_integration_type_path, class: "btn btn-danger" %>
