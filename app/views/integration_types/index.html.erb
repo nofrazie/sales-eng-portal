@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-8">
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="integration_types">
       <thead>
         <tr>
           <th>Integraion Types</th>
@@ -8,25 +8,21 @@
         </tr>
       </thead>
       <tbody>
-        <% @integration_types.each do |it| %>
-        <tr>
-          <td><%= it.name %></td>
-          <td>
-            <%= link_to(@integration_type, {:class => "btn btn-danger btn-xs"}, method: :delete, data: { confirm: "Do you want to delete this integration type?" }) do %>
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-        <tr>
-          <td>Add New Integration Type</td>
-          <td>
-            <%= link_to(new_integration_type_path, {:class => "btn btn-default btn-xs"}) do %>
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            <% end %>
-          </td>
-        </tr>
+        <%= render @integration_types %>
       </tbody>
+    </table>
+
+    <table class="table table-bordered table-hover">
+      <%= form_for(@integration_type, remote: true) do |f| %>
+        <tr>
+          <td>
+            <%= f.text_field :name %>
+          </td>
+          <td>
+            <%= f.submit "Add", class: 'btn btn-xs btn-default', id: "add-btn" %>
+          </td>
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>
