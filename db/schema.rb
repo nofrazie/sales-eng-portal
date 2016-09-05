@@ -24,11 +24,9 @@ ActiveRecord::Schema.define(version: 20160905195432) do
     t.text     "built_by"
     t.string   "status"
     t.text     "summary"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "integration_type_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "picture"
-    t.index ["integration_type_id"], name: "index_integrations_on_integration_type_id"
   end
 
   create_table "users", force: :cascade do |t|
