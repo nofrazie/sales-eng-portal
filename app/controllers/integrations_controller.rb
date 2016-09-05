@@ -32,7 +32,7 @@ class IntegrationsController < ApplicationController
     @integration = Integration.find(params[:id])
     if @integration.update_attributes(integration_params)
       flash[:success] = "Integration updated"
-      redirect_to @integration.id
+      redirect_to @integration
     else
       render 'edit'
     end
