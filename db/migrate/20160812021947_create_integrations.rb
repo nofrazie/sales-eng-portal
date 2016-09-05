@@ -6,7 +6,7 @@ class CreateIntegrations < ActiveRecord::Migration[5.0]
       t.text :built_by
       t.string :status
       t.text :summary
-      t.references :integration_type
+      t.references :integration_type, index: true
       t.timestamps
     end
   end
