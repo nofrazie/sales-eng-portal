@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823025322) do
+ActiveRecord::Schema.define(version: 20160905195432) do
 
   create_table "integration_types", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160823025322) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "integration_type_id"
+    t.string   "picture"
     t.index ["integration_type_id"], name: "index_integrations_on_integration_type_id"
   end
 

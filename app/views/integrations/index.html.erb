@@ -2,5 +2,6 @@
 <%= link_to "Create New Integration", new_integration_path, class: "btn btn-default" %>
 
 <% @integrations.each do |i| %>
+  <%= image_tag i.picture.url if i.picture? %>
   <p><%= i.id %>. <%= i.name %> | Built By <%= i.built_by %> | <%= link_to "Show", integration_path(i) %></p>
 <% end %>

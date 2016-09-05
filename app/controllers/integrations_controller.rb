@@ -46,6 +46,6 @@ class IntegrationsController < ApplicationController
 
   private
     def integration_params
-      params.require(:integration).permit(:name, :integration_type_id, :description, :built_by, :status, :summary)
+      params.require(:integration).permit(:name, :integration_type_id, :description, :built_by, :status, :summary, :picture)
     end
 end
