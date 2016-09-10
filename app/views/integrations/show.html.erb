@@ -7,6 +7,8 @@
 <p>Status: <%= @integration.status %></p>
 <h5>Summary:</h5>
 <p><%= @integration.summary %></p>
+<h5>Created on: <%= @integration.created_at.strftime("%m/%d/%Y") %></h5>
+<h5>Last updated: <%= @integration.updated_at.strftime("%I:%M %p, %m/%d/%Y") %></h5>
 
 <% if current_user.admin? && !current_user?(@user) %>
   <%= link_to "Delete", @integration, method: :delete, data: { confirm: "Do you really want to delete this integration?" } %>
