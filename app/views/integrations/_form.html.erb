@@ -32,7 +32,19 @@
   </div>
 
   <div class="form-group">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    <div class="row">
+      <div class="col-md-7">
+        <%= f.label :picture, "Upload Integration Image" %>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %><br>
+      </div>
+      <div class="col-md-5">
+        <% if f.object.picture %>
+          <h5>Current Image:</h5>
+          <%= image_tag f.object.picture %><br>
+          <%= f.object.picture %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
