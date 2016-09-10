@@ -1,6 +1,7 @@
 <h1><%= @integration.name %> <span><%= link_to "Edit", edit_integration_path(@integration), class: "btn btn-default" %></span></h1>
+<%= image_tag @integration.picture %>
 <h3><%= @integration.integration_type.name %></h3>
-<p><%= @integration.built_by %></p>
+<p>Built by: <%= @integration.built_by %></p>
 <h5>Description:</h5>
 <p><%= @integration.description %><p>
 <p>Status: <%= @integration.status %></p>
