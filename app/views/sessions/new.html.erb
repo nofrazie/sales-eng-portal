@@ -2,11 +2,11 @@
 
 <div class="login-container">
   <div class="row">
-    <div class="col-md-4 left-pane">
+    <div class="col-md-4">
       <%= image_tag("procore_logo.png", :alt => "Procore Logo", height: "30") %>
-      
-      <%= render "shared/new_session_form" %>
-
+      <div class="well">
+        <%= render "shared/new_session_form" %>
+      </div>
       <p>New user? <%= link_to "Sign up now!", signup_path %></p>
     </div>
   </div>
