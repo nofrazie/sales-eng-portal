@@ -1,5 +1,7 @@
 class Integration < ApplicationRecord
   belongs_to :user
+  default_scope -> { order(created_at: :desc) }
+  validates :user_id, presence: true
   belongs_to :integration_type
   mount_uploader :picture, PictureUploader
   validate :picture_size

@@ -38,7 +38,7 @@
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %><br>
       </div>
       <div class="col-md-5">
-        <% if f.object.picture %>
+        <% if f.object.picture.length > 0 %>
           <h5>Current Image:</h5>
           <%= image_tag f.object.picture %><br>
           <%= f.object.picture %>

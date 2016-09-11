@@ -1,0 +1,11 @@
+<li id="integration.id">
+  <%= link_to gravatar_for(integration.user, size: 50), integration.user %>
+  <span class="user"><%= link_to integration.user.profile_name, integration.user %></span>
+  <span class="name"><%= image_tag integration.picture %> <%= integration.name %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(integration.created_at) %> ago.
+    <% if current_user?(integration.user) %>
+      <%= link_to "delete", integration, method: :delete, data: { confirm: "Do you want to delete this integration?"} %>
+    <% end %>
+  </span>
+</li>
