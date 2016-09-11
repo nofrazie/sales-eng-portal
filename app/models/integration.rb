@@ -1,4 +1,5 @@
 class Integration < ApplicationRecord
+  belongs_to :user
   belongs_to :integration_type
   mount_uploader :picture, PictureUploader
   validate :picture_size

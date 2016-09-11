@@ -7,7 +7,10 @@ class CreateIntegrations < ActiveRecord::Migration[5.0]
       t.string :status
       t.text :summary
       t.references :integration_type, index: true
+      t.references :user, foreign_key: true
+
       t.timestamps
     end
+    add_index :integrations, [:user_id, :created_at]
   end
 end

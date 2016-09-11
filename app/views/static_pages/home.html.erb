@@ -1,18 +1,14 @@
-<% if logged_in? %>
-  <%= render 'shared/user_info' %>
-<% else %>
-  <div class="col-md-4">
-    <div class="well">
-      <%= render "shared/new_session_form" %>
-    </div>
+<div class="col-md-4">
+  <div class="well">
+    <%= render "shared/new_session_form" %>
   </div>
-  <div class="col-md-8">
-    <h1>Welcome to the Procore Sales Engineering Portal</h1>
+</div>
+<div class="col-md-8">
+  <h1>Welcome to the Procore Sales Engineering Portal</h1>
 
-    <h2>
-      This is the home page for the Sales Engineering Team at <a href="https://procoretech.com" target="_blank">Procore Technologies</a>.
-    </h2>
+  <h2>
+    This is the home page for the Sales Engineering Team at <a href="https://procoretech.com" target="_blank">Procore Technologies</a>.
+  </h2>
 
-    <%= link_to "sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  </div>
-<% end %>
+  <%= link_to "sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
