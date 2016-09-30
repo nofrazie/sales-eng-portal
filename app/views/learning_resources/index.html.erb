@@ -1,5 +1,25 @@
 <h1 class="page-header">Learning Resources</h1>
 <%= link_to "New Learning Resource", new_learning_resource_path, class: "btn btn-primary" %>
-<% @learning_resources.each do |lr| %>
+<table class="table">
+  <thead>
+    <th>#</th>
+    <th>Title</th>
+    <th>Type</th>
+    <th></th>
+    <th><th>
+    <th>Vote</th>
+  </thead>
 
-<% end %>
+  <tbody>
+    <% @learning_resources.each do |lr| %>
+      <tr>
+        <td><%= lr.id %></td>
+        <td><%= link_to lr.title, lr.link, target: "_blank" %></td>
+        <td><%= lr.learning_resource_type.name %></td>
+        <td><%= link_to "See More", learning_resource_path(lr) %></td>
+        <td><%= link_to "Edit", edit_learning_resource_path(lr) %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
