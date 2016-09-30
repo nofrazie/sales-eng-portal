@@ -1,13 +1,12 @@
 <h1 class="page-header">SI Integraions</h1>
 <%= link_to "Create New Integration", new_integration_path, class: "btn btn-default" %>
 
-<% @integrations.each do |i| %>
-  <div class="row">
+<div class="row">
+  <% @integrations.each do |i| %>
     <div class="col-md-3 app-single">
       <%= link_to integration_path(i) do %>
-        <%= image_tag i.picture.url if i.picture? %>
-        <p><%= i.id %>. <%= i.name %> | Built By <%= i.built_by %></p>
+        <%= image_tag(i.picture.url, :class => "img-responsive integration_tabs") %>
       <% end %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
