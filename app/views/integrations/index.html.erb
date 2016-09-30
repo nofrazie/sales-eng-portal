@@ -3,9 +3,11 @@
 
 <% @integrations.each do |i| %>
   <div class="row">
-    <div class="col-md-4">
-      <%= image_tag i.picture.url if i.picture? %>
-      <p><%= i.id %>. <%= i.name %> | Built By <%= i.built_by %> | <%= link_to "Show", integration_path(i) %></p>
+    <div class="col-md-3 app-single">
+      <%= link_to integration_path(i) do %>
+        <%= image_tag i.picture.url if i.picture? %>
+        <p><%= i.id %>. <%= i.name %> | Built By <%= i.built_by %></p>
+      <% end %>
     </div>
   </div>
 <% end %>
