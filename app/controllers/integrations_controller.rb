@@ -41,7 +41,7 @@ class IntegrationsController < ApplicationController
   def destroy
     @integration.destroy
     flash[:success] = "Integration deleted"
-    redirect_to integrations
+    redirect_to integrations_path
   end
 
   private

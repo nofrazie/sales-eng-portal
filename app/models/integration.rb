@@ -6,6 +6,14 @@ class Integration < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validate :picture_size
 
+  validates :name,         presence: true
+  validates :description,  presence: true,
+                          length: { minimum: 20 }
+  validates :built_by,     presence: true
+  validates :status,       presence: true
+  validates :summary,      presence: true,
+                          length: { minimum: 20 }
+
   private
     # Validates the size of an uploaded picture.
     def picture_size
