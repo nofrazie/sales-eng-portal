@@ -1,0 +1,2 @@
+class LearningResourceType < ApplicationRecord
+end

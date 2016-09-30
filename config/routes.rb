@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :integrations
   resources :integration_types
+  resources :learning_resources
+  resources :learning_resource_types
 end

@@ -1,0 +1,23 @@
+<%= form_for(@learning_resource) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :link %>
+    <%= f.text_field :link, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :learning_resource_type, "Learning Resource Type" %>
+    <%= f.collection_select :learning_resource_type_id, LearningResourceType.all, :id, :name, {}, {:class=>'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+
+<% end %>

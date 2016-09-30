@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905195432) do
+ActiveRecord::Schema.define(version: 20160930193027) do
 
   create_table "integration_types", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(version: 20160905195432) do
     t.index ["integration_type_id"], name: "index_integrations_on_integration_type_id"
     t.index ["user_id", "created_at"], name: "index_integrations_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_integrations_on_user_id"
+  end
+
+  create_table "learning_resource_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learning_resources", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link"
+    t.integer  "learning_resource_type_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["learning_resource_type_id"], name: "index_learning_resources_on_learning_resource_type_id"
+    t.index ["user_id", "created_at"], name: "index_learning_resources_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_learning_resources_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

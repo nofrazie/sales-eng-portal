@@ -17,3 +17,8 @@ IntegrationType.create(name: "Other")
 IntegrationType.create(name: "Scheduling")
 IntegrationType.create(name: "Storage")
 IntegrationType.create(name: "Custom Integrations")
+
+LearningResourceType.create(name: "Article")
+LearningResourceType.create(name: "Book")
+LearningResourceType.create(name: "Podcast")
+LearningResourceType.create(name: "Video")
