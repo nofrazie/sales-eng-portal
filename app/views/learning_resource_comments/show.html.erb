@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Learning resource:</strong>
+  <%= @learning_resource_comment.learning_resource_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @learning_resource_comment.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @learning_resource_comment.user %>
+</p>
+
+<%= link_to 'Edit', edit_learning_resource_comment_path(@learning_resource_comment) %> |
+<%= link_to 'Back', learning_resource_comments_path %>

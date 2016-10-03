@@ -17,6 +17,7 @@ gem 'oauth2'
 gem 'will_paginate',                  '3.1.0'
 gem "fog-aws"
 gem 'acts_as_votable',                '~> 0.10.0'
+gem 'simple_form'
 
 
 group :development, :test do
