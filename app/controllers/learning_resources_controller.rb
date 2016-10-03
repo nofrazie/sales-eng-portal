@@ -11,7 +11,7 @@ class LearningResourcesController < ApplicationController
   end
 
   def new
-    @learning_resource = LearningResource.new
+    @learning_resource = current_user.learning_resources.build
   end
 
   def create
