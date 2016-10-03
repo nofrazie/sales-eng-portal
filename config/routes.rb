@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       put "like",     to: "learning_resources#upvote"
       put "dislike",  to: "learning_resources#downvote"
     end
+    resources :learning_resource_comments
   end
   resources :learning_resource_types
-  resources :learning_resource_comments
 end

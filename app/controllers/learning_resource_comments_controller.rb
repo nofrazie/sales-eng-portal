@@ -1,35 +1,17 @@
 class LearningResourceCommentsController < ApplicationController
   before_action :set_learning_resource_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /learning_resource_comments
-  # GET /learning_resource_comments.json
-  def index
-    @learning_resource_comments = LearningResourceComment.all
-  end
-
-  # GET /learning_resource_comments/1
-  # GET /learning_resource_comments/1.json
-  def show
-  end
-
-  # GET /learning_resource_comments/new
-  def new
-    @learning_resource_comment = LearningResourceComment.new
-  end
-
-  # GET /learning_resource_comments/1/edit
-  def edit
-  end
-
   # POST /learning_resource_comments
   # POST /learning_resource_comments.json
   def create
-    @learning_resource_comment = LearningResourceComment.new(learning_resource_comment_params)
+    @learning_resource = LearningResource.find(params[:learning_resource_id])
+    @learning_resource_comment = @learning_resource.learning_resource_comments.new(learning_resource_comment_params)
+    @learning_resource_comment.user = current_user
 
     respond_to do |format|
       if @learning_resource_comment.save
-        format.html { redirect_to @learning_resource_comment, notice: 'Learning resource comment was successfully created.' }
-        format.json { render :show, status: :created, location: @learning_resource_comment }
+        format.html { redirect_to @learning_resource, notice: 'Learning resource comment was successfully created.' }
+        format.json { render json: @learning_resource_comment, status: :created, location: @learning_resource_comment }
       else
         format.html { render :new }
         format.json { render json: @learning_resource_comment.errors, status: :unprocessable_entity }

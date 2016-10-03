@@ -1,0 +1,14 @@
+<%= div_for(learning_resource_comment) do %>
+  <div class="comments-wrapper clearfix">
+    <div class="pull-left">
+      <p class="lead"><%= learning_resource_comment.body %></p>
+      <p><small>Submitted <strong><%= time_ago_in_words(learning_resource_comment.created_at) %> ago</strong> by <%= learning_resource_comment.user.profile_name %></small></p>
+    </div>
+
+    <div class="btn-group pull-right">
+      <% if learning_resource_comment.user == current_user %>
+        <%= link_to "Destroy", learning_resource_learning_resource_comment_path(@learning_resource), method: :delete, data: { confirm: "Are you sure you want to delete your comment?" }, class: "btn btn-sm btn-default" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

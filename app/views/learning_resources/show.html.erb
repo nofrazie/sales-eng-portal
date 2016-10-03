@@ -25,3 +25,18 @@
     <%= @learning_resource.get_downvotes.size %>
   <% end %>
 </div>
+
+<h4 class="comments_title">
+  <%= @learning_resource.learning_resource_comments.count %> Comments
+</h4>
+
+<div class="comments">
+  <%= render :partial => @learning_resource.learning_resource_comments %>
+</div>
+<%= simple_form_for [@learning_resource, LearningResourceComment.new] do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <br>
+  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+<% end %>

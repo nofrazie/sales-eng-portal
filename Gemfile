@@ -18,6 +18,7 @@ gem 'will_paginate',                  '3.1.0'
 gem "fog-aws"
 gem 'acts_as_votable',                '~> 0.10.0'
 gem 'simple_form',                    '~> 3.3', '>= 3.3.1'
+gem 'record_tag_helper',              '~> 1.0'
 
 
 group :development, :test do
