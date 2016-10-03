@@ -3,12 +3,12 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <%= image_tag @user.picture, class: "img-responsive" %>
         <%= @user.profile_name %>
       </h1>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-8 user_integrations">
     <% if @user.integrations.any? %>
       <h3>Integrations (<%= @user.integrations.count %>)</h3>
       <ol>

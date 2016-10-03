@@ -1,5 +1,7 @@
 <li id="integration.id">
-  <%= link_to gravatar_for(integration.user, size: 50), integration.user %>
+  <%= link_to integration.user do %>
+    <%= image_tag @user.picture %>
+  <% end %>
   <span class="user"><%= link_to integration.user.profile_name, integration.user %></span>
   <span class="name"><%= image_tag integration.picture %> <%= integration.name %></span>
   <span class="timestamp">
