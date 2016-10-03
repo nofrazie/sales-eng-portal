@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 gem 'rails',                          '5.0.0'
 gem 'puma',                           '3.4.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails',                     '5.0.6'
 gem 'uglifier',                       '3.0.0'
 gem 'coffee-rails',                   '4.2.1'
@@ -15,6 +16,7 @@ gem 'carrierwave',                    '0.11.2'
 gem 'oauth2'
 gem 'will_paginate',                  '3.1.0'
 gem "fog-aws"
+gem 'acts_as_votable',                '~> 0.10.0'
 
 
 group :development, :test do

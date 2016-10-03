@@ -1,4 +1,5 @@
 class LearningResource < ApplicationRecord
+  acts_as_votable
   belongs_to :learning_resource_type
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
@@ -9,5 +10,4 @@ class LearningResource < ApplicationRecord
                     uniqueness: true
   validates :link,  presence: true,
                     uniqueness: true
-
 end
