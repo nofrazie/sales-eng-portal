@@ -1,25 +1,11 @@
 <h1 class="page-header">Learning Resources</h1>
 <%= link_to "New Learning Resource", new_learning_resource_path, class: "btn btn-primary" %>
-<table class="table">
-  <thead>
-    <th>#</th>
-    <th>Title</th>
-    <th>Type</th>
-    <th></th>
-    <th><th>
-    <th>Vote</th>
-  </thead>
 
-  <tbody>
-    <% @learning_resources.each do |lr| %>
-      <tr>
-        <td><%= lr.id %></td>
-        <td><%= link_to lr.title, lr.link, target: "_blank" %></td>
-        <td><%= lr.learning_resource_type.name %></td>
-        <td><%= link_to "See More", learning_resource_path(lr) %></td>
-        <td><%= link_to "Edit", edit_learning_resource_path(lr) %></td>
-        <td></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @learning_resources.each do |lr| %>
+  <div class="resource row clearfix">
+    <h3>
+      <%= link_to lr.title, lr %><br>
+      <small class="author">Submitted <%= time_ago_in_words(lr.created_at) %> by <%= lr.user.profile_name %></small>
+    </h3>
+  </div>
+<% end %>
