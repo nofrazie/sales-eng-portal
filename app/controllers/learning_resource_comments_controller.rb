@@ -19,20 +19,6 @@ class LearningResourceCommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /learning_resource_comments/1
-  # PATCH/PUT /learning_resource_comments/1.json
-  def update
-    respond_to do |format|
-      if @learning_resource_comment.update(learning_resource_comment_params)
-        format.html { redirect_to @learning_resource_comment, notice: 'Learning resource comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @learning_resource_comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @learning_resource_comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /learning_resource_comments/1
   # DELETE /learning_resource_comments/1.json
   def destroy
