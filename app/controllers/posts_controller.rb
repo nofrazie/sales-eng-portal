@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.post.build(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:info] = "You have successfully created a new Post."
       redirect_to post_path(@post)
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).require(:title, :body)
+      params.require(:post).permit(:title, :body)
     end
 
     def correct_user
