@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     resources :learning_resource_comments
   end
   resources :learning_resource_types
+  resources :posts
 end

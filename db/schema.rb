@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003134553) do
+ActiveRecord::Schema.define(version: 20161018024455) do
 
   create_table "integration_types", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20161003134553) do
     t.index ["learning_resource_type_id"], name: "index_learning_resources_on_learning_resource_type_id"
     t.index ["user_id", "created_at"], name: "index_learning_resources_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_learning_resources_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

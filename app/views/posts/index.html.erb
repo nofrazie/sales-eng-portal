@@ -1,0 +1,7 @@
+<h1 class="page-header">My Blog Posts</h1>
+<% @posts.each do |post| %>
+  <div class="post_wrapper">
+    <h2><%= link_to post.title, post %></h2>
+    <p><%= post.created_at.strftime("%B, %d, %Y") %></p>
+  </div>
+<% end %>

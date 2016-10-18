@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :integrations
   has_many :learning_resources
   has_many :learning_resource_comments
+  has_many :posts
 
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
