@@ -1,3 +1,8 @@
-<h1 class="page-header"><%= @post.title %></h1>
-
+<div class="blog_header">
+  <h1 class="page-header"><%= @post.title %></h1>
+  <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-sm" %>
+</div>
+<div class="blog_body">
+  <p><%= @post.body %></p>
+</div>
 <p>Submitted <%= time_ago_in_words(@post.created_at) %> ago.</p>

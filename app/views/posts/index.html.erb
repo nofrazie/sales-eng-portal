@@ -1,7 +1,8 @@
 <h1 class="page-header">My Blog Posts</h1>
+<%= link_to "Create New Blog Post", new_post_path, class: "btn btn-primary" %>
 <% @posts.each do |post| %>
   <div class="post_wrapper">
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= post.created_at.strftime("%B, %d, %Y") %></p>
+    <h3><%= link_to post.title, post %></h3>
+    <p>Posted on: <%= post.created_at.strftime("%B, %d, %Y") %></p>
   </div>
 <% end %>

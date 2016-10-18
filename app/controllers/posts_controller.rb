@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:success] = "Post updated"
       redirect_to @post
