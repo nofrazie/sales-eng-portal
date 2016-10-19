@@ -4,17 +4,20 @@
 </div>
 
 <!-- RESOURCE BUTTON AREA -->
-<div class="learning_resource row">
-  <% if @learning_resource.learning_resource_type.name == "Video" %>
-    <iframe width="560" height="315" src="<%= video_code(@learning_resource) %>" frameborder="0" allowfullscreen></iframe>
-  <% end %>
-  <div class="resource_buttons row">
+<div class="learning_resource">
+  <div class="row">
+    <div class="col-md-8">
+      <% if @learning_resource.learning_resource_type.name == "Video" %>
+        <iframe width="560" height="315" src="<%= video_code(@learning_resource) %>" frameborder="0" allowfullscreen></iframe>
+      <% end %>
+    </div>
+  </div>
 
-    <div class="col-md-6">
+  <div class="resource_buttons row">
+    <div class="col-md-4">
       <div class="btn-group">
         <%= link_to "Visit URL", @learning_resource.link, target: "_blank", class: "btn btn-primary" %>
       </div>
-
       <% if @learning_resource.user == current_user %>
         <div class="btn-group">
           <%= link_to "Edit", edit_learning_resource_path(@learning_resource), class: "btn btn-default" %>
@@ -23,7 +26,7 @@
       <% end %>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="btn-group pull-right">
         <%= link_to like_learning_resource_path(@learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
           <span class="glyphicon glyphicon-chevron-up"></span>
