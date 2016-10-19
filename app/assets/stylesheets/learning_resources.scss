@@ -1,3 +1,41 @@
 // Place all the styles related to the learning_resources controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Learning Resource Index Page Styles
+*************************************/
+
+.learning_resources {
+  padding: 10px 10px;
+  margin: 10px 5px 7px;
+
+  .resource {
+    border-bottom: 1px solid lightgrey;
+    padding: 5px 8px;
+
+    &:hover {
+      background-color: rgba(220,220,220,0.9)
+    }
+  }
+}
+
+/* Learning Resource Comment Styles
+***********************************/
+
+.learning_resource_comments {
+  padding: 25px 10px 15px;
+
+  .comments {
+    padding: 10px 10px;
+
+    .learning_resource_comment {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.comments-wrapper p {
+  font-size: 15px;
+  margin: 0 0 3px 0;
+}

@@ -1,32 +1,42 @@
 <!-- HEADER -->
 <div class="page-header">
-  <h1><a href="<%= @learning_resource.link %>"><%= @learning_resource.title %></a><br> <small>Submitted by <%= @learning_resource.user.profile_name %></small></h1>
+  <h1><a href="<%= @learning_resource.link %>" target="_blank"><%= @learning_resource.title %></a><br> <small>Submitted by <%= @learning_resource.user.profile_name %></small></h1>
 </div>
 
 <!-- RESOURCE BUTTON AREA -->
-<div class="learning_resource">
-  <div class="btn-group">
-    <%= link_to "Visit URL", @learning_resource.link, class: "btn btn-primary" %>
-  </div>
-
-  <% if @learning_resource.user == current_user %>
-    <div class="btn-group">
-      <%= link_to "Edit", edit_learning_resource_path(@learning_resource), class: "btn btn-default" %>
-      <%= link_to "Destroy", @learning_resource, method: :delete, data: { confirm: "Are you sure you want to delete this link?" }, class: "btn btn-default" %>
-    </div>
+<div class="learning_resource row">
+  <% if @learning_resource.learning_resource_type.name == "Video" %>
+    <iframe width="560" height="315" src="<%= video_code(@learning_resource) %>" frameborder="0" allowfullscreen></iframe>
   <% end %>
+  <div class="resource_buttons row">
 
-  <div class="btn-group pull-right">
-    <%= link_to like_learning_resource_path(@learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-up"></span>
-      Upvote
-      <%= @learning_resource.get_upvotes.size %>
-    <% end %>
-    <%= link_to dislike_learning_resource_path(@learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-down"></span>
-      Downvote
-      <%= @learning_resource.get_downvotes.size %>
-    <% end %>
+    <div class="col-md-6">
+      <div class="btn-group">
+        <%= link_to "Visit URL", @learning_resource.link, target: "_blank", class: "btn btn-primary" %>
+      </div>
+
+      <% if @learning_resource.user == current_user %>
+        <div class="btn-group">
+          <%= link_to "Edit", edit_learning_resource_path(@learning_resource), class: "btn btn-default" %>
+          <%= link_to "Destroy", @learning_resource, method: :delete, data: { confirm: "Are you sure you want to delete this link?" }, class: "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <div class="btn-group pull-right">
+        <%= link_to like_learning_resource_path(@learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-chevron-up"></span>
+          Upvote
+          <%= @learning_resource.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_learning_resource_path(@learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-chevron-down"></span>
+          Downvote
+          <%= @learning_resource.get_downvotes.size %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
