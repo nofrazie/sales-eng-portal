@@ -1,3 +1,3 @@
 <% provide(:button_text, 'Edit Post') %>
-<h1 class="page-header">Edit <%= @post.title %></h1>
-<%= render 'form' %>
+<h1 class="page-header">Edit <%= @post.title %> Article</h1>
+<%= render 'form', post: @post %>

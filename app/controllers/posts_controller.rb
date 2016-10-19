@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
@@ -7,31 +8,28 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
     @post = Post.new
   end
 
+  def edit
+  end
+
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:info] = "You have successfully created a new Post."
-      redirect_to post_path(@post)
+      flash[:notice] = "You have successfully created a new Post."
+      redirect_to @post
     else
       render 'new'
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
-
   def update
-    @post = Post.find(params[:id])
-    if @post.update_attributes(post_params)
-      flash[:success] = "Post updated"
+    if @post.update(post_params)
+      flash[:notice] = "Post was successfully updated."
       redirect_to @post
     else
       render 'edit'
@@ -40,11 +38,15 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
-    redirect_to posts_path
+    flash[:success] = "Post successfully destroyed."
+    redirect_to posts_url
   end
 
   private
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
     def post_params
       params.require(:post).permit(:title, :body)
     end
