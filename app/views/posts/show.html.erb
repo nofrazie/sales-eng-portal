@@ -1,8 +1,11 @@
 <div class="blog_header">
   <h1 class="page-header"><%= @post.title %></h1>
+  <p>Created: <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.first_name + " " + @post.user.last_name %>.</p>
+  <p>Last Updated: <%= @post.updated_at.strftime("%B %d, %Y at %H:%M%P") %></p>
   <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-sm" %>
 </div>
 <div class="blog_body">
   <p><%= @post.body %></p>
 </div>
-<p>Submitted <%= time_ago_in_words(@post.created_at) %> ago.</p>
+
+<%= link_to '< Back', posts_path %>
