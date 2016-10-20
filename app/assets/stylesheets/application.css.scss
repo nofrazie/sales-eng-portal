@@ -17,6 +17,7 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
 
 .navbar-brand {
   padding: 5px;
