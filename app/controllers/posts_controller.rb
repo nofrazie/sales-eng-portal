@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def index
-    @posts = current_user.posts.all
+    @posts = Post.where(user_id: current_user.id).order(:created_at)
   end
 
   def show
