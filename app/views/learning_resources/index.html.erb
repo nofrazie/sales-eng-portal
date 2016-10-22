@@ -1,5 +1,4 @@
 <h1 class="page-header">Learning Resources</h1>
-<%= link_to "New Learning Resource", new_learning_resource_path, class: "btn btn-primary" %>
 
 <div class="learning_resources">
   <% @learning_resources.each do |lr| %>
@@ -25,3 +24,11 @@
     </div>
   <% end %>
 </div>
+
+
+<!-- SIDEBAR CONTENT -->
+<% content_for :sidebar do %>
+  <ul class="nav nav-pills">
+    <li><%= link_to "New Learning Resource", new_learning_resource_path %></li>
+  </ul>
+<% end %>
