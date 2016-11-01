@@ -1,5 +1,6 @@
+<% provide(:title, "Integrations") %>
+<!-- Main Page Content -->
 <h1 class="page-header">SI Integraions</h1>
-<%= link_to "Create New Integration", new_integration_path, class: "btn btn-default" %>
 
 <div class="row">
   <% @integrations.each do |i| %>
@@ -10,3 +11,11 @@
     </div>
   <% end %>
 </div>
+
+
+<!-- SIDEBAR CONTENT -->
+<% content_for :sidebar do %>
+  <ul class="nav nav-pills nav-stacked">
+    <li><%= link_to "New Integraion", new_integration_path %></li>
+  </ul>
+<% end %>
