@@ -1,8 +1,17 @@
+<% provide(:title, "Blog") %>
+
+<!-- Main Page Content -->
 <h1 class="page-header">My Blog Posts</h1>
-<%= link_to "Create New Blog Post", new_post_path, class: "btn btn-primary" %>
 <% @posts.each do |post| %>
   <div class="post_wrapper">
     <h3><%= link_to post.title, post %></h3>
     <p>Posted on: <%= post.created_at.strftime("%B, %d, %Y") %></p>
   </div>
+<% end %>
+
+<!-- SIDEBAR CONTENT -->
+<% content_for :sidebar do %>
+  <ul class="nav nav-pills nav-stacked">
+    <li><%= link_to "New Blog Post", new_post_path %></li>
+  </ul>
 <% end %>

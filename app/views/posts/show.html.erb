@@ -1,11 +1,25 @@
+<% provide(:title, @post.title) %>
+
+<!-- Main Page Content -->
 <div class="blog_header">
   <h1 class="page-header"><%= @post.title %></h1>
   <p>Created: <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.first_name + " " + @post.user.last_name %>.</p>
   <p>Last Updated: <%= @post.updated_at.strftime("%B %d, %Y at %H:%M%P") %></p>
-  <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-sm" %>
 </div>
 <div class="blog_body">
   <p><%= simple_format(@post.body) %></p>
 </div>
 
 <%= link_to '< Back', posts_path %>
+
+<!-- SIDEBAR CONTENT -->
+<% content_for :sidebar do %>
+  <ul class="nav nav-pills nav-stacked">
+    <li><%= link_to "Edit Blog Post", edit_post_path(@post) %></li>
+    <li>
+      <% if current_user.admin? && !current_user?(@user) %>
+        <%= link_to "Delete", @post, method: :delete, data: { confirm: "Do you really want to delete this post?" } %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
