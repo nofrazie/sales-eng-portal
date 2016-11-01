@@ -10,19 +10,18 @@
       <tbody>
         <%= render @integration_types %>
       </tbody>
-    </table>
-
-    <table class="table table-bordered table-hover">
-      <%= form_for(@integration_type, remote: true) do |f| %>
-        <tr>
-          <td>
-            <%= f.text_field :name %>
-          </td>
-          <td>
-            <%= f.submit "Add", class: 'btn btn-xs btn-default', id: "add-btn" %>
-          </td>
-        </tr>
-      <% end %>
+      <tbody>
+        <%= form_for(@integration_type, remote: true) do |f| %>
+          <tr>
+            <td>
+              <%= f.text_field :name %>
+            </td>
+            <td>
+              <%= f.submit "Add", class: 'btn btn-xs btn-default', id: "integration-type-link" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

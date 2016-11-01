@@ -1,1 +1,3 @@
-$("<%= escape_javascript(render @integration_type) %>").appendTo("#integration_types");
+// $("<%= escape_javascript(render @integration_type) %>").appendTo("#integration_types");
+$('#integration_types').append("<%= j render @integration_type %>");
+$('#integration_type_name').val("");
