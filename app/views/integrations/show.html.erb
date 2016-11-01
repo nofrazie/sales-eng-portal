@@ -1,5 +1,7 @@
 <% provide(:title, @integration.name) %>
-<h1 class="page-header"><%= @integration.name %> <span><%= link_to "Edit", edit_integration_path(@integration), class: "btn btn-default" %></span></h1>
+
+<!-- Main Page Content -->
+<h1 class="page-header"><%= @integration.name %></h1>
 <%= image_tag @integration.picture %>
 <h3><%= @integration.integration_type.name %></h3>
 <p>Built by: <%= @integration.built_by %></p>
@@ -11,6 +13,15 @@
 <h5>Created on: <%= @integration.created_at.strftime("%m/%d/%Y") %></h5>
 <h5>Last updated: <%= @integration.updated_at.strftime("%I:%M %p, %m/%d/%Y") %></h5>
 
-<% if current_user.admin? && !current_user?(@user) %>
-  <%= link_to "Delete", @integration, method: :delete, data: { confirm: "Do you really want to delete this integration?" } %>
+
+<!-- SIDEBAR CONTENT -->
+<% content_for :sidebar do %>
+  <ul class="nav nav-pills nav-stacked">
+    <li><%= link_to "Edit Integraion", edit_integration_path(@integration) %></li>
+    <li>
+      <% if current_user.admin? && !current_user?(@user) %>
+        <%= link_to "Delete", @integration, method: :delete, data: { confirm: "Do you really want to delete this integration?" } %>
+      <% end %>
+    </li>
+  </ul>
 <% end %>
