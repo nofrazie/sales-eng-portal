@@ -4,28 +4,42 @@
 <h1 class="page-header">Learning Resources</h1>
 
 <div class="learning_resources">
-  <% @learning_resources.each do |lr| %>
-    <div class="resource row clearfix">
-      <h3>
-        <%= link_to lr.title, lr %><br>
-        <small class="author">Submitted <%= time_ago_in_words(lr.created_at) %> by <%= lr.user.profile_name %></small>
-      </h3>
-
-      <div class="btn-group">
-        <a href="<%= lr.link %>" target="_blank" class="btn btn-default btn-sm">Visit Link</a>
-        <%= link_to like_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
-          <span class="glyphicon glyphicon-chevron-up"></span>
-          Upvote
-          <%= lr.get_upvotes.size %>
-        <% end %>
-        <%= link_to dislike_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
-          <span class="glyphicon glyphicon-chevron-down"></span>
-          Downvote
-          <%= lr.get_downvotes.size %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Submitted</th>
+        <th>Created by</th>
+        <th>Upvotes</th>
+        <th>Downvotes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @learning_resources.each do |lr| %>
+        <tr>
+          <td><%= link_to lr.title, lr %></td>
+          <td><%= lr.learning_resource_type.name %></td>
+          <td><%= time_ago_in_words(lr.created_at) + " ago" %></td>
+          <td><%= lr.user.profile_name %></td>
+          <td>
+            <%= link_to like_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-chevron-up"></span>
+              Upvote
+              <%= lr.get_upvotes.size %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to dislike_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-chevron-down"></span>
+              Downvote
+              <%= lr.get_downvotes.size %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 
