@@ -19,7 +19,7 @@ class IntegrationTypesController < ApplicationController
     respond_to do |format|
       if @integration_type.save
         format.html { redirect_to integration_types, notice: "New integration type was successfully created." }
-        format.js 
+        format.js
         format.json { render json: integration_types, status: :created, location: @integration_type }
       else
         format.html { render action: 'new' }
