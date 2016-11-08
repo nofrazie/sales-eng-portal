@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-bordered table-hover" id="learning_resource_types">
+      <thead>
+        <tr>
+          <th>Learning Resource Types</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @learning_resource_types %>
+      </tbody>
+      <tbody>
+        <%= form_for(@learning_resource_type, remote: true) do |f| %>
+          <tr>
+            <td>
+              <%= f.text_field :name %>
+            </td>
+            <td>
+              <%= f.submit "Add", class: 'btn btn-xs btn-default', id: "learning-resource-type-link" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
