@@ -2,45 +2,46 @@
 
 <!-- MAIN PAGE CONTENT -->
 <h1 class="page-header">Learning Resources</h1>
-
-<div class="learning_resources">
-  <table class="table table-condensed table-bordered table-hover">
-    <thead>
-      <tr>
-        <th><%= sortable "title" %><%= sortable_class "title" %></th>
-        <th><%= sortable "learning_resource_type_id", "Type" %><%= sortable_class "learning_resource_type_id" %></th>
-        <th><%= sortable "created_at", "Submitted" %><%= sortable_class "created_at" %></th>
-        <th><%= sortable "user_id", "Created by" %><%= sortable_class "user_id" %></th>
-        <th><%= sortable "cached_votes_up", "Upvotes" %><%= sortable_class "cached_votes_up" %></th>
-        <th><%= sortable "cached_votes_down", "Downvotes" %><%= sortable_class "cached_votes_down" %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @learning_resources.each do |lr| %>
+<% if @learning_resources.any? %>
+  <div class="learning_resources">
+    <table class="table table-condensed table-bordered table-hover">
+      <thead>
         <tr>
-          <td><%= link_to lr.title, lr %></td>
-          <td><%= lr.learning_resource_type.name %></td>
-          <td><%= time_ago_in_words(lr.created_at) + " ago" %></td>
-          <td><%= lr.user.profile_name %></td>
-          <td>
-            <%= link_to like_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
-              <span class="glyphicon glyphicon-chevron-up"></span>
-              Upvote
-              <%= lr.get_upvotes.size %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to dislike_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
-              <span class="glyphicon glyphicon-chevron-down"></span>
-              Downvote
-              <%= lr.get_downvotes.size %>
-            <% end %>
-          </td>
+          <th><%= sortable "title" %><%= sortable_class "title" %></th>
+          <th><%= sortable "learning_resource_type_id", "Type" %><%= sortable_class "learning_resource_type_id" %></th>
+          <th><%= sortable "created_at", "Submitted" %><%= sortable_class "created_at" %></th>
+          <th><%= sortable "user_id", "Created by" %><%= sortable_class "user_id" %></th>
+          <th><%= sortable "cached_votes_up", "Upvotes" %><%= sortable_class "cached_votes_up" %></th>
+          <th><%= sortable "cached_votes_down", "Downvotes" %><%= sortable_class "cached_votes_down" %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @learning_resources.each do |lr| %>
+          <tr>
+            <td><%= link_to lr.title, lr %></td>
+            <td><%= lr.learning_resource_type.name %></td>
+            <td><%= time_ago_in_words(lr.created_at) + " ago" %></td>
+            <td><%= lr.user.profile_name %></td>
+            <td>
+              <%= link_to like_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
+                <span class="glyphicon glyphicon-chevron-up"></span>
+                Upvote
+                <%= lr.get_upvotes.size %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to dislike_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                Downvote
+                <%= lr.get_downvotes.size %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
 
 <!-- SIDEBAR CONTENT -->
