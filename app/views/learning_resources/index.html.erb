@@ -7,12 +7,12 @@
   <table class="table table-condensed table-bordered table-hover">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Submitted</th>
-        <th>Created by</th>
-        <th>Upvotes</th>
-        <th>Downvotes</th>
+        <th><%= sortable "title" %></th>
+        <th><%= sortable "learning_resource_type_id", "Type" %></th>
+        <th><%= sortable "created_at", "Submitted" %></th>
+        <th><%= sortable "user_id", "Created by" %></th>
+        <th><%= sortable "votable_id", "Upvotes" %></th>
+        <th><%= link_to "Downvotes", :sort => "" %></th>
       </tr>
     </thead>
     <tbody>

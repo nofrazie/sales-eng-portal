@@ -2,9 +2,10 @@ class LearningResourcesController < ApplicationController
   before_action :set_learning_resource, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :logged_in_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   def index
-    @learning_resources = LearningResource.all
+    @learning_resources = LearningResource.all.order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -67,6 +68,14 @@ class LearningResourcesController < ApplicationController
     def correct_user
       @learning_resource = current_user.learning_resources.find_by(id: params[:id])
       redirect_to root_url if @learning_resource.nil?
+    end
+
+    def sort_column
+      params[:sort] || "title"
+    end
+
+    def sort_direction
+      params[:direction] || "ASC"
     end
 
 end
