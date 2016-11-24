@@ -71,11 +71,11 @@ class LearningResourcesController < ApplicationController
     end
 
     def sort_column
-      params[:sort] || "title"
+      LearningResource.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
     end
 
     def sort_direction
-      params[:direction] || "ASC"
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
 
 end

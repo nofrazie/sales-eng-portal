@@ -11,8 +11,8 @@
         <th><%= sortable "learning_resource_type_id", "Type" %></th>
         <th><%= sortable "created_at", "Submitted" %></th>
         <th><%= sortable "user_id", "Created by" %></th>
-        <th><%= sortable "votable_id", "Upvotes" %></th>
-        <th><%= link_to "Downvotes", :sort => "" %></th>
+        <th><%= sortable "cached_votes_up", "Upvotes" %></th>
+        <th><%= sortable "cached_votes_down", "Downvotes" %></th>
       </tr>
     </thead>
     <tbody>
