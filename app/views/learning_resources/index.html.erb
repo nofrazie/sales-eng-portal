@@ -7,12 +7,12 @@
   <table class="table table-condensed table-bordered table-hover">
     <thead>
       <tr>
-        <th><%= sortable "title" %></th>
-        <th><%= sortable "learning_resource_type_id", "Type" %></th>
-        <th><%= sortable "created_at", "Submitted" %></th>
-        <th><%= sortable "user_id", "Created by" %></th>
-        <th><%= sortable "cached_votes_up", "Upvotes" %></th>
-        <th><%= sortable "cached_votes_down", "Downvotes" %></th>
+        <th><%= sortable "title" %><%= sortable_class "title" %></th>
+        <th><%= sortable "learning_resource_type_id", "Type" %><%= sortable_class "learning_resource_type_id" %></th>
+        <th><%= sortable "created_at", "Submitted" %><%= sortable_class "created_at" %></th>
+        <th><%= sortable "user_id", "Created by" %><%= sortable_class "user_id" %></th>
+        <th><%= sortable "cached_votes_up", "Upvotes" %><%= sortable_class "cached_votes_up" %></th>
+        <th><%= sortable "cached_votes_down", "Downvotes" %><%= sortable_class "cached_votes_down" %></th>
       </tr>
     </thead>
     <tbody>

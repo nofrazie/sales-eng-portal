@@ -10,13 +10,17 @@ module ApplicationHelper
 
   def sortable(column, title = nil)
     title ||= column.titleize
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, {:sort => column, :direction => direction}
+  end
+
+  def sortable_class(column)
     if sort_direction == "asc"
       class_direction = "arrow-up"
     elsif sort_direction == "desc"
       class_direction = "arrow-down"
     end
     css_class = column == sort_column ? "glyphicon glyphicon-#{class_direction}" : nil
-    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-    link_to title, {:sort => column, :direction => direction}, {:class => css_class}
+    content_tag(:span, "", :class => css_class)
   end
 end
