@@ -1,4 +1,5 @@
 <% provide(:title, "Learning Resources") %>
+<% provide(:button_text, 'Create') %>
 
 <!-- MAIN PAGE CONTENT -->
 <h1 class="page-header">Learning Resources</h1>
@@ -15,31 +16,50 @@
           <th><%= sortable "cached_votes_down", "Downvotes" %><%= sortable_class "cached_votes_down" %></th>
         </tr>
       </thead>
-      <tbody>
-        <% @learning_resources.each do |lr| %>
-          <tr>
-            <td><%= link_to lr.title, lr %></td>
-            <td><%= lr.learning_resource_type.name %></td>
-            <td><%= time_ago_in_words(lr.created_at) + " ago" %></td>
-            <td><%= lr.user.profile_name %></td>
-            <td>
-              <%= link_to like_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
-                <span class="glyphicon glyphicon-chevron-up"></span>
-                Upvote
-                <%= lr.get_upvotes.size %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to dislike_learning_resource_path(lr), method: :put, class: "btn btn-default btn-sm" do %>
-                <span class="glyphicon glyphicon-chevron-down"></span>
-                Downvote
-                <%= lr.get_downvotes.size %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+      <tbody id="container_learning_resources">
+        <%= render @learning_resources %>
       </tbody>
     </table>
+  </div>
+<% end %>
+
+
+<!-- MODAL CREATE ACTION FOR NEW LEARNING RESOURCE -->
+<%= form_for(@learning_resource, remote: true) do |f| %>
+  <div class="modal fade" id="mynewlearningresource" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Learning Resource</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control learning_resource_title' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :link %>
+            <%= f.text_field :link, class: 'form-control learning_resource_link' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :learning_resource_type, "Learning Resource Type" %>
+            <%= f.collection_select :learning_resource_type_id, LearningResourceType.all, :id, :name, {}, {:class=>'form-control learning_resource_type'} %>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-group">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewlearningresourceclose">Close</button>
+            <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
 
@@ -47,7 +67,7 @@
 <!-- SIDEBAR CONTENT -->
 <% content_for :sidebar do %>
   <ul class="nav nav-pills nav-stacked">
-    <li><%= link_to "New Learning Resource", new_learning_resource_path %></li>
+    <li><%= link_to "New Learning Resource", new_learning_resource_path, {"data-toggle" => "modal", "data-target" => "#mynewlearningresource"} %></li>
   </ul>
   <h6><%= link_to "Learning Resource Settings", learning_resource_types_path %></h6>
 <% end %>

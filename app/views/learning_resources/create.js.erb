@@ -1,0 +1,6 @@
+$("#mynewlearningresource").modal('hide');
+$(".learning_resource_title").val('');
+$(".learning_resource_link").val('');
+
+$("#container_learning_resources").prepend('<%= j render @learning_resource %>');
+$("#learning_resource_<%= @learning_resource.id %>").hide().fadeIn(1000);

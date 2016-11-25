@@ -6,22 +6,29 @@ class LearningResourcesController < ApplicationController
 
   def index
     @learning_resources = LearningResource.all.order(sort_column + " " + sort_direction)
+    @learning_resource = current_user.learning_resources.build
   end
 
   def show
   end
 
   def new
-    @learning_resource = current_user.learning_resources.build
+    # @learning_resource = current_user.learning_resources.build
   end
 
   def create
     @learning_resource = current_user.learning_resources.build(learning_resource_params)
-    if @learning_resource.save
-      flash[:info] = "You have successfully created a new Learning Resource."
-      redirect_to learning_resource_path(@learning_resource)
-    else
-      render 'new'
+
+    respond_to do |format|
+      if @learning_resource.save
+        format.html { redirect_to learning_resource_path(@learning_resource), info: "You have successfully created a new Learning Resource." }
+        format.json { render :show, status: :created, location: @learning_resource }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @learning_resource.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
   end
 

@@ -5,7 +5,7 @@ class LearningResource < ApplicationRecord
   validates :user_id, presence: true
 
   validates :title, presence: true,
-                    length: { minimum: 8 },
+                    length: { minimum: 4 },
                     uniqueness: true
   validates :link,  presence: true,
                     uniqueness: true

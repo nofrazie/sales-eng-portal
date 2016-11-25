@@ -1,0 +1,20 @@
+<tr id="learning_resource_<%= learning_resource.id %>">
+  <td><%= link_to learning_resource.title, learning_resource %></td>
+  <td><%= learning_resource.learning_resource_type.name %></td>
+  <td><%= time_ago_in_words(learning_resource.created_at) + " ago" %></td>
+  <td><%= learning_resource.user.profile_name %></td>
+  <td>
+    <%= link_to like_learning_resource_path(learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-up"></span>
+      Upvote
+      <%= learning_resource.get_upvotes.size %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to dislike_learning_resource_path(learning_resource), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-down"></span>
+      Downvote
+      <%= learning_resource.get_downvotes.size %>
+    <% end %>
+  </td>
+</tr>
