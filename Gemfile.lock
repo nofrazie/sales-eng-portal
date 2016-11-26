@@ -57,7 +57,6 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    client_side_validations (3.2.8)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -251,7 +250,6 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   byebug (= 9.0.0)
   carrierwave (= 0.11.2)
-  client_side_validations
   coffee-rails (= 4.2.1)
   fog-aws
   guard (= 2.13.0)
